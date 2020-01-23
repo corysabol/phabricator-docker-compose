@@ -7,7 +7,7 @@ services:
   mariadb:
     image: 'mariadb:latest'
     healthcheck:
-       test: ["CMD", "mysqladmin", "-p", "${DB_ROOT_PWD}", "ping", "-h", "127.0.0.1"] 
+       test: ["CMD", "mysqladmin", "-p${DB_ROOT_PWD}", "ping", "-h", "127.0.0.1"] 
        interval: 10s
        timeout: 8s
        retries: 10

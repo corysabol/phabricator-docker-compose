@@ -17,7 +17,7 @@ RUN rm /etc/apache2/sites-available/000-default.conf
 RUN rm /etc/apache2/sites-enabled/000-default.conf
 
 COPY ./conf/local/local.json /opt/phabricator/conf/local/local.json
-COPY ./startup.sh ./startup.sh
+COPY ./conf/startup.sh ./startup.sh
 
 RUN useradd daemon-user
 #RUN chown -R daemon-user:daemon-user /data/repo
@@ -26,7 +26,7 @@ RUN useradd daemon-user
 RUN ln -s /usr/lib/git-core/git-http-backend /usr/bin/
 RUN apt install sudo
 RUN echo "Cmnd_Alias GIT_CMDS = /usr/bin/git*" >> /etc/sudoers.d/www-user-git
-RUN echo "www-user ALL=(daemon-user) SETENV: NOPASSWD: GIT_CMDS" >> /etc/sudoers.d/www-user-git
+RUN echo "www-data ALL=(daemon-user) SETENV: NOPASSWD: GIT_CMDS" >> /etc/sudoers.d/www-user-git
 RUN chmod 0440 /etc/sudoers.d/www-user-git
 #USER www-user
 
