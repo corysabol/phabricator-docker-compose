@@ -1,0 +1,20 @@
+{
+  "phd.user": "daemon-user",
+  "cluster.mailers": [
+    {
+      "key": "smtp-mailer",
+      "type": "smtp",
+      "options": {
+        "host": "mailserver",
+        "port": 25
+      }
+    }
+  ],
+  "phabricator.base-uri": "http://phabricator.diana/",
+  "repository.default-local-path": "/data/repo",
+  "phd.user": "daemon-user",
+  "mysql.pass": "rootpwd",
+  "mysql.user": "root",
+  "mysql.port": "3306",
+  "mysql.host": "mariadb"
+}
